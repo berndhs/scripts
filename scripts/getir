@@ -1,0 +1,37 @@
+#!/bin/sh
+
+PICDEST="$HOME/daily/"
+echo "this is getir, destination is " $PICDEST
+pics="ECIR.JPG WCIR.JPG"
+echo "trying to get " $pics
+cd /tmp
+for p in $pics ; 
+do
+	if [ -e /tmp/$p ]; then
+		rm /tmp/$p
+	fi
+	wget http://www.goes.noaa.gov/GIFS/$p
+	$HOME/bin/storeinDB $p
+	cp /tmp/$p /var/www/html/pictures/daily/$p
+	mv /tmp/$p $PICDEST
+	done;
+cd $PICDEST
+cp /var/www/html/pictures/daily/ECIR.JPG /gitrepos/background.jpg
+
+CURCAN="CAN.JPG"
+wget http://www.weatheroffice.gc.ca/data/satellite/goes_enam_1070_100.jpg -O ${CURCAN}
+CUREURO="EURO.JPG"
+wget http://www.dwd.de/bvbw/generator/Sites/DWDWWW/Content/Oeffentlichkeit/WV/WVFK/English/Dynamisches/Regional/mete__IR__SW__aktuell__m00s,templateId=poster,property=poster.png -O ${CUREURO}
+DAILYDIR="/var/www/html/pictures/daily"  
+cp ${CURCAN} ${DAILYDIR}/can.jpg
+cp ${CUREURO} ${DAILYDIR}/euro.jpg
+
+${HOME}/bin/storeinDB CAN.JPG
+
+${HOME}/bin/storeinDB EURO.JPG
+
+
+echo "content of " `pwd` " :"
+date --rfc-2822
+ls -l
+

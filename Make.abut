@@ -1,0 +1,7 @@
+
+
+all: abut
+
+
+abut: abut.cpp
+	g++ abut.cpp -o abut

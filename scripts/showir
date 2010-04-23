@@ -1,0 +1,6 @@
+#!/bin/bash
+SATS="$HOME/daily/ECIR.JPG $HOME/daily/WCIR.JPG"
+php  $HOME/bin/time.php $SATS
+for S in $SATS ; do
+	display $S &
+	done

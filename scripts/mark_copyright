@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exiftool -overwrite_original -copyright='Copyright 2010, Bernd Stramm' $*

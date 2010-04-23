@@ -1,0 +1,32 @@
+# Makefile for the SQL test program
+# 
+#
+
+SRC = storeinDB.cpp
+HDR =
+OBJ=$(SRC:.cpp=.o)
+
+LIBS = -lmysqlpp
+INC_PATH =  /usr/include/
+INC = -I $(INC_PATH)/mysql++ -I $(INC_PATH)/mysql
+
+CXX = g++
+CXXFLAGS = -g -O3 -Wall -Wextra -pedantic -Wno-long-long
+
+TARGET = storeinDB
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ) 
+	$(CXX) $(CXXFLAGS) $(OBJ) $(LIBS) -o $(TARGET)
+
+install: $(TARGET)
+	install $(TARGET) $(HOME)/bin/
+
+clean:
+	rm $(TARGET) $(OBJ)
+
+.SUFFIXES:
+
+%.o: %.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INC) $<

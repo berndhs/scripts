@@ -1,0 +1,10 @@
+#!/bin/bash
+foo=""
+bar=""
+while [ "$foo" == "$bar" ]  
+do
+  doxephyr 
+  echo "again? "
+  read foo
+  echo $foo
+done
