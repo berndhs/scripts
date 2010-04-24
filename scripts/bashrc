@@ -1,0 +1,16 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+
+alias zz='source ~/.bashrc'
+alias mroe='more'
+alias h=history
+alias q47='source ~/bin/setq47'
+export EXTRA_PATH="/usr/local/bin"
+export PATH="$EXTRA_PATH:$PATH"
+

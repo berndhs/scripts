@@ -27,6 +27,7 @@ all:
 	@echo "to install scripts, do make install DESTDIR=/where/you/want/it"
 
 install:
+	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
 	install -p ${SCRIPTS} ${DESTDIR}
 
 
