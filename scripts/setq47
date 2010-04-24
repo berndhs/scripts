@@ -1,0 +1,11 @@
+# setq47
+# 
+# for these defs to become effect, you have to do
+#
+#  source this-file-name
+#
+
+export Q47="/usr/local/Trolltech/Qt-4.7.0"
+export OLDPATH="$PATH"
+export PATH="${Q47}/bin:${PATH}"
+export PS1='\u@\h Q47 \t \W \$ '

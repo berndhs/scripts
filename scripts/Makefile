@@ -20,6 +20,7 @@ SCRIPTS =  \
 	special.sh  \
 	storeIR.php \
 	time.php   \
+	setq47 \
 
 
 all:
