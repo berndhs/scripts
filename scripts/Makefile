@@ -21,6 +21,7 @@ SCRIPTS =  \
 	storeIR.php \
 	time.php   \
 	setq47 \
+	setqsim \
 
 
 all:

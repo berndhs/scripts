@@ -1,0 +1,12 @@
+# setqsim
+# 
+# for these defs to become effect, you have to do
+#
+#  source this-file-name
+#
+
+export Q47SIM="/home/bernd/NokiaQtSDK/Simulator/Qt/gcc"
+export QTCREATOR_DIR="/home/bernd/NokiaQtSDK/QtCreator"
+export OLDPATH="$PATH"
+export PATH="${Q47SIM}/bin:${QTCREATOR_DIR}/bin:${PATH}"
+export PS1='\u@\h Q47SIM \t \W \$ '

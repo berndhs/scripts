@@ -11,6 +11,7 @@ alias zz='source ~/.bashrc'
 alias mroe='more'
 alias h=history
 alias q47='source ~/bin/setq47'
+alias qtsim='source ~/bin/setqsim'
 export EXTRA_PATH="/usr/local/bin"
 export PATH="$EXTRA_PATH:$PATH"
 
