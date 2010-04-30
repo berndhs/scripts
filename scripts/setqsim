@@ -8,7 +8,7 @@
 #BLUE="1;34m"
 #YELO_BACK="43m"
 
-export PS1='\u@\h \033[1;34m\033[43mQ47SIM\033[0m \t \W \$ '
+export PS1='\u@\h \[\033[1;34m\033[43m\]Q47SIM\[\033[0m\] \t \W \$ '
 export Q47SIM="/home/bernd/NokiaQtSDK/Simulator/Qt/gcc"
 export QTCREATOR_DIR="/home/bernd/NokiaQtSDK/QtCreator"
 export OLDPATH="$PATH"

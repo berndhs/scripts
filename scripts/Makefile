@@ -22,6 +22,8 @@ SCRIPTS =  \
 	time.php   \
 	setq47 \
 	setqsim \
+	initqt47 \
+	initqtsim \
 
 
 all:

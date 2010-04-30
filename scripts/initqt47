@@ -1,0 +1,17 @@
+
+# .bashrc substitute
+
+# Source really global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+# Source less global definitions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# Source specific aliases and functions 
+
+if [ -f ~/bin/setq47 ]; then
+	. ~/bin/setq47
+fi

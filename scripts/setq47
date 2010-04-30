@@ -9,7 +9,7 @@
 #BLUE_BACK="44m"
 #GREEN_ON_BLUE="\033[${GREEN}\033[${BLUE_BACK}"
 #NOCOL="\033[0m"
-export PS1='\u@\h \033[1;32m\033[44mQ47\033[0m \t \W \$ '
+export PS1='\u@\h \[\033[1;32m\033[44m\]Q47\[\033[0m\] \t \W \$ '
 
 export Q47="/usr/local/Trolltech/Qt-4.7.0"
 export OLDPATH="$PATH"
