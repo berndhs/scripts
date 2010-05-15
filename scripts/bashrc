@@ -18,5 +18,5 @@ alias bashqt47='bash --rcfile ~/bin/initqt47'
 alias bashqtsim='bash --rcfile ~/bin/initqtsim'
 export EXTRA_PATH="/usr/local/bin"
 export PATH="$EXTRA_PATH:$PATH"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME:/mywork/twitter/qoauth/lib"
+#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/mywork/qoauth/lib"
 
