@@ -28,9 +28,13 @@ SCRIPTS =  \
 
 all:
 	@echo "to install scripts, do make install DESTDIR=/where/you/want/it"
+	@echo "           default: ${DESTDIR}"
+	@echo "to install bashrc, do make installbash"
 
 install:
-	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
 	install -p ${SCRIPTS} ${DESTDIR}
+
+installbash:
+	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
 
 
