@@ -24,6 +24,8 @@ SCRIPTS =  \
 	setqsim \
 	initqt47 \
 	initqtsim \
+	synserv \
+	synmeego \
 
 
 all:
