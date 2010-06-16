@@ -21,7 +21,28 @@ main (int argc, char *argv[])
   ifstream if2;
   if1.open (in1.c_str());
   if2.open (in2.c_str());
-  while (!if1.eof() && !if1.eof()) {
+  bool  done1(false);
+  bool  done2(false);
+  done1 = if1.eof();
+  done2 = if2.eof();
+  char tmp;
+  while ( ! (done1 && done2) ) {
+    if1.get (tmp);
+    if (if1.eof()) {
+      if1.clear ();
+      if1.seekg (ios_base::beg);
+      done1 = true;
+    } else {
+      if1.unget ();
+    }
+    if2.get (tmp);
+    if (if2.eof()) {
+      if2.clear ();
+      if2.seekg (ios_base::beg);
+      done2 = true;
+    } else {
+      if2.unget ();
+    }
     if1.getline (buf1, longline);
     if2.getline (buf2, longline);
     cout << buf1 << " " << buf2  << endl;

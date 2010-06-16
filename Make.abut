@@ -1,7 +1,11 @@
 
+DESTDIR=$(HOME)/bin
 
 all: abut
 
 
 abut: abut.cpp
 	g++ abut.cpp -o abut
+
+install: abut
+	install -p abut $(DESTDIR)
