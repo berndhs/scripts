@@ -26,6 +26,7 @@ SCRIPTS =  \
 	initqtsim \
 	synserv \
 	synmeego \
+	connectgogo \
 
 
 all:

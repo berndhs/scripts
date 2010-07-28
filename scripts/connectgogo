@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /usr/local/gogoc/bin
+sudo ./gogoc
+sleep 3
+ifconfig tun
