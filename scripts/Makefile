@@ -4,7 +4,6 @@ DESTDIR=${HOME}/bin
 SCRIPTS =  \
 	addgpl.sh         \
 	doxephyr         \
-	exiftool        \
 	float          \
 	getir         \
 	get_more_goes.sh \
