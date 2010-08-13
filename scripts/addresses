@@ -1,0 +1,5 @@
+#!/bin/bash
+NAME_DIR=/var/named
+FILES="${NAME_DIR}/named.berndnet ${NAME_DIR}/named.reflective"
+awk '/[ \t]IN[ \t]+A[ \t]/ { print $0;}' ${FILES}
+awk '/[ \t]IN[ \t]+AAAA[ \t]/ { print $0;}' ${FILES}

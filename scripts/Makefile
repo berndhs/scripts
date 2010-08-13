@@ -26,6 +26,8 @@ SCRIPTS =  \
 	synserv \
 	synmeego \
 	connectgogo \
+	addresses \
+	add-links \
 
 
 all:
@@ -34,7 +36,7 @@ all:
 	@echo "to install bashrc, do make installbash"
 
 install:
-	install -p ${SCRIPTS} ${DESTDIR}
+	install -m 0755 -p ${SCRIPTS} ${DESTDIR}
 
 installbash:
 	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
