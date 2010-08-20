@@ -1,10 +1,9 @@
-#ifndef SATVIEW_VERSION_H
-#define SATVIEW_VERSION_H
+
 
 /****************************************************************
  * This file is distributed under the following license:
  *
- * Copyright (C) 2010, Bernd Stramm
+ * Copyright (C) 2010, 
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
@@ -22,31 +21,3 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
-#include <QString>
-#include "delib-debug.h"
-
-namespace deliberate {
-
-class ProgramVersion {
-
-public:
-
-  ProgramVersion (QString pgmname);
-  
-  static QString Version (); 
-  static QString MyName ();
-  
-  static void ShowVersionWindow ();
-  static void CLIVersion ();
-  
-private:
-
-  static QString VersionNumber;
-  static QString ProgramName;
-  static QString copyright;
-
-};
-
-}
-
-#endif

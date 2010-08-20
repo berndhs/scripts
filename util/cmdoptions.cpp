@@ -1,7 +1,6 @@
 #include "cmdoptions.h"
 #include <iostream>
 #include <QObject>
-#include "drssdebug.h"
 
 //
 //  Copyright (C) 2009 - Bernd H Stramm 

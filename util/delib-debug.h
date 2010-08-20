@@ -2,21 +2,21 @@
 #define DELIB_DEBUG_H
 
 //
-//  Copyright (C) 2010 - Bernd H Stramm 
+//  Copyright (C) 2010 - Bernd H Stramm
 //
-// This file is distributed under the terms of 
-// the GNU General Public License version 2 
+// This file is distributed under the terms of
+// the GNU General Public License version 2
 //
-// This software is distributed in the hope that it will be useful, 
-// but WITHOUT ANY WARRANTY; without even the implied warranty 
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// This software is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 //
 //
 
 
-// 
+//
 // Usage:
-// 
+//
 // - Static Log:
 //
 //    Make sure DELIBERATE_DEBUG is set to a non-zero value , e.g.
@@ -52,48 +52,77 @@
 
 #include <qapplication.h>
 #include <iostream>
-#include "ui_debuglog.h"
+#include "ui_DebugLog.h"
 
 #include <QDebug>
 #include <QCloseEvent>
+#include <QFile>
 
-namespace deliberate {
+namespace deliberate
+{
 
 void UseMyOwnMessageHandler ();
 
-void StartDebugLog ();
+void StartDebugLog (bool gui=true);
+void StartFileLog (QString filename);
 void StopDebugLog ();
 bool DebugLogRecording ();
 
 void MyOwnMessageOutput (QtMsgType type, const char* msg);
 
-class DebugLog : public QDialog, public Ui_LogDialog {
-Q_OBJECT
+int Hang (int msec = -1, const QString & message = QString("Hanging"));
+
+/** \brief DebugLog - Facilities for displaying and storing a log */
+
+class DebugLog : public QDialog, public Ui_LogDialog
+{
+  Q_OBJECT
 
 public:
 
   DebugLog (QWidget * parent);
   DebugLog ();
-  
+  ~DebugLog ();
+
+  void LogToFile (QString filename);
+
   bool Log (const char * msg);
+  bool Log (const char * kind, const char * msg);
   void closeEvent (QCloseEvent *event);
-  
+
 public slots:
 
   void Close ();
   void quit ();
-  void StopLogging () { isLogging = false; }
-  void StartLogging () { isLogging = true; }
-  bool IsLogging () { return isLogging; }
-  
+  void StopLogging () {
+    isLogging = false;
+  }
+  void StartLogging () {
+    isLogging = true;
+  }
+  bool IsLogging () {
+    return isLogging;
+  }
+  bool IsUsingGui () {
+    return useGui;
+  }
+  bool UseGui (bool gui=true) {
+    useGui=gui;
+    return gui;
+  }
+  void SaveLog ();
+
 private slots:
 
-  
+
 private:
 
   void  Connect ();
 
   bool  isLogging;
+  bool  useGui;
+  bool  logToFile;
+  QFile logFile;
 
 };
 

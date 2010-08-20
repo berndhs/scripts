@@ -3,22 +3,27 @@
 #include <iostream>
 #include <qapplication.h>
 #include <QPoint>
+#include <QFile>
+#include <QFileDialog>
+#include <QTimer>
+#include <QMessageBox>
 
 //
-//  Copyright (C) 2010 - Bernd H Stramm 
+//  Copyright (C) 2010 - Bernd H Stramm
 //
-// This file is distributed under the terms of 
-// the GNU General Public License version 2 
+// This file is distributed under the terms of
+// the GNU General Public License version 2
 //
-// This software is distributed in the hope that it will be useful, 
-// but WITHOUT ANY WARRANTY; without even the implied warranty 
-// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// This software is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 //
 
 
 using namespace std;
 
-namespace deliberate {
+namespace deliberate
+{
 
 
 static DebugLog *staticLog(0);
@@ -33,24 +38,44 @@ void MyOwnMessageOutput (QtMsgType type, const char* msg)
 #if DELIBERATE_DEBUG
   switch (type) {
   case QtDebugMsg:
-    staticLog->Log ("Qt Debug: ");
+    if (staticLog) {
+      staticLog->Log ("Qt Debug: ", msg);
+    } else {
+      cout << "Qt Debug: " << msg << endl;
+    }
     break;
   case QtWarningMsg:
-    staticLog->Log ("Qt Warn: ");
+    if (staticLog) {
+      staticLog->Log ("Qt Warn: ", msg);
+    } else {
+      cout << "Qt Warn: " << msg << endl;
+    }
     break;
   case QtCriticalMsg:
-    staticLog->Log ("Qt Critical: ");
+    if (staticLog) {
+      staticLog->Log ("Qt Critical: ", msg);
+    } else {
+      cout << "Qt Critical: " << msg << endl;
+    }
     break;
   case QtFatalMsg:
     cout << "Qt Fatal: " << msg << endl;
-    staticLog->Log ("Qt Fatal: ");
+    if (staticLog) {
+      staticLog->Log ("Qt Fatal: ", msg);
+    } else {
+      cout << "Qt Fatal: " << msg << endl;
+    }
     abort();
     break;
   default:
     cout << " unknown Qt msg type: " << msg << endl;
+    if (staticLog) {
+      staticLog->Log ("Qt Debug: ", msg);
+    } else {
+      cout << "Qt Debug: " << msg << endl;
+    }
     break;
   }
-  staticLog->Log ( msg);
 #else
   switch (type) {
   case QtFatalMsg:
@@ -70,14 +95,27 @@ void MyOwnMessageOutput (QtMsgType type, const char* msg)
 
 
 void
-StartDebugLog ()
+StartDebugLog (bool gui)
 {
   if (staticLog == 0) {
     staticLog = new DebugLog ;
   }
   staticLog->StartLogging ();
-  staticLog->move (QPoint (0,0));
-  staticLog->show ();
+  staticLog->UseGui (gui);
+  if (gui) {
+    staticLog->move (QPoint (0,0));
+    staticLog->show ();
+  }
+}
+
+void
+StartFileLog (QString filename)
+{
+  if (staticLog == 0) {
+    staticLog = new DebugLog ;
+  }
+  staticLog->StartLogging ();
+  staticLog->LogToFile (filename);
 }
 
 void
@@ -101,8 +139,9 @@ DebugLogRecording ()
 
 
 DebugLog::DebugLog ()
-:QDialog(0),
- isLogging (false)
+  :QDialog(0),
+   isLogging (false),
+   logToFile (false)
 {
   setupUi (this);
   Connect ();
@@ -110,12 +149,18 @@ DebugLog::DebugLog ()
 }
 
 DebugLog::DebugLog (QWidget * parent)
-:QDialog (parent),
- isLogging (false)
+  :QDialog (parent),
+   isLogging (false),
+   logToFile (false)
 {
   setupUi (this);
   Connect ();
   hide ();
+}
+
+DebugLog::~DebugLog ()
+{
+  logFile.close ();
 }
 
 void
@@ -124,6 +169,7 @@ DebugLog::Connect ()
   connect (closeButton, SIGNAL (clicked()), this, SLOT(Close()));
   connect (stopButton, SIGNAL (clicked()), this, SLOT (StopLogging()));
   connect (startButton, SIGNAL (clicked()), this, SLOT (StartLogging()));
+  connect (saveButton, SIGNAL (clicked()), this, SLOT (SaveLog()));
 }
 
 void
@@ -142,17 +188,92 @@ DebugLog::quit ()
 void
 DebugLog::closeEvent (QCloseEvent *event)
 {
+  Q_UNUSED (event)
   Close ();
 }
 
 bool
 DebugLog::Log (const char* msg)
 {
-  if (isLogging) {
+  if (isLogging && useGui) {
     logBox->append (QString(msg));
     update ();
   }
+  if (logToFile) {
+    logFile.write (QByteArray (msg));
+    logFile.write ("\n");
+    logFile.flush ();
+  }
   return isLogging;
 }
+
+bool
+DebugLog::Log (const char* kind, const char* msg)
+{
+  QString realMessage (QString(kind) + " - " + QString(msg));
+  if (isLogging && useGui) {
+    logBox->append (QString(kind) + " - " + QString(msg));
+    update ();
+  }
+  if (logToFile) {
+    logFile.write (realMessage.toUtf8());
+    logFile.write ("\n");
+    logFile.flush ();
+  }
+  return isLogging;
+}
+
+void
+DebugLog::SaveLog ()
+{
+  QString saveFile = QFileDialog::getSaveFileName (this, tr("Save Log File"),
+                     "./debug-log.log",
+                     tr("Text Files (*.log *.txt );; All Files (*.*)"));
+  if (saveFile.length() > 0) {
+    QFile file(saveFile);
+    file.open (QFile::WriteOnly);
+    file.write (logBox->toPlainText().toLocal8Bit());
+    file.close ( );
+  }
+}
+
+void
+DebugLog::LogToFile (QString filename)
+{
+  logFile.setFileName (filename);
+  bool isopen = logFile.open (QFile::WriteOnly);
+  logToFile = isopen;
+
+  cout << " log to file " << filename.toStdString() << endl;
+  cout << " log file open is " << isopen << endl;
+}
+
+int
+Hang (int msec, const QString & message)
+{
+  QMessageBox  box;
+  box.setText (message);
+  box.setStandardButtons (QMessageBox::Ok 
+                        | QMessageBox::Cancel
+                        | QMessageBox::Abort);
+  if (msec > 0) {
+    QTimer::singleShot (msec, &box, SLOT (reject()));
+  }
+  int response = box.exec ();
+qDebug () << " Hang box result " << response;
+  switch (response) {
+  case QMessageBox::Ok:
+    return 1;
+  case QMessageBox::Cancel:
+    return 0;
+  case QMessageBox::Abort:
+    abort ();
+    break;
+  default:
+    break;
+  }
+  return 0;
+}
+
 
 } // namespace
