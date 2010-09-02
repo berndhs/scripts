@@ -28,6 +28,7 @@ SCRIPTS =  \
 	connectgogo \
 	addresses \
 	add-links \
+	syncmail \
 
 
 all:
