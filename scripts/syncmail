@@ -1,0 +1,6 @@
+#!/bin/bash
+
+THEHOST=$1
+
+rsync -avz ~/Mail ${THEHOST}:
+rsync -avz ~/.claws-mail ${THEHOST}:
