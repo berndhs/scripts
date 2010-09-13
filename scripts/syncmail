@@ -2,4 +2,4 @@
 
 THEHOST=$1
 
-rsync -avz ~/Mail ~/.claws-mail${THEHOST}:
+rsync -avz ~/Mail ~/.claws-mail  ${THEHOST}:
