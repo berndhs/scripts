@@ -1,0 +1,27 @@
+#!/bin/bash
+
+DELAY=750
+if [ $# > 1 ]
+then
+  let DELAY=$1
+fi
+service aiccu start
+ifconfig sixxs
+NOT_OK=$?
+
+while [ $NOT_OK -ne 0 ]
+do
+  echo
+  echo "No Go at " `date`
+  echo
+  sleep $DELAY
+  /etc/init.d/aiccu restart
+  NOT_OK=$?
+done
+
+echo
+echo "Seems we are in business at  " `date`
+echo
+sleep 5
+ifconfig sixxs
+
