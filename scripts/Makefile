@@ -3,6 +3,7 @@ DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
 	addgpl.sh         \
+	colors.sh	\
 	doxephyr         \
 	float          \
 	getir         \
@@ -15,6 +16,7 @@ SCRIPTS =  \
 	makearchive.sh  \
 	mark_copyright \
 	runcopydb.sh  \
+        repack.sh \
 	showir       \
 	special.sh  \
 	storeIR.php \
