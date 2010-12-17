@@ -20,4 +20,10 @@ alias bashqtsim='bash --rcfile ~/bin/initqtsim'
 alias fdt='float deeptrim'
 export EXTRA_PATH="/usr/local/bin"
 export PATH="$EXTRA_PATH:$PATH"
+export LD_LIBRARY_PATH="/usr/local/lib"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+export EDITOR='vi'
+
+export PS1='\u@\h \t \W \$ '
+
 
