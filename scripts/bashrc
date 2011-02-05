@@ -18,6 +18,7 @@ alias bashqt47='bash --rcfile ~/bin/initqt47'
 alias bashqtsim='bash --rcfile ~/bin/initqtsim'
 
 alias fdt='float deeptrim'
+export QT_SOURCE_TREE="/home/bernd/Downloads/software/qt-source/qt-everywhere-opensource-src-4.7.1"
 export EXTRA_PATH="/usr/local/bin"
 export PATH="$EXTRA_PATH:$PATH"
 export LD_LIBRARY_PATH="/usr/local/lib"
