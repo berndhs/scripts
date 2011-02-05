@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SAVEHOST=fiji
+
+rsync -avz ~/Mail ~/.claws-mail  ${SAVEHOST}:

@@ -31,6 +31,8 @@ SCRIPTS =  \
 	addresses \
 	add-links \
 	syncmail \
+	pushmail \
+        pullmail \
 
 
 all:
