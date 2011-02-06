@@ -2,5 +2,5 @@
 
 SAVEHOST=fiji
 
-rsync -avz ${SAVEHOST}:Mail/ ${HOME}
-rsync -avz ${SAVEHOST}:.claws-mail/ ${HOME}
+rsync -avz ${SAVEHOST}:Mail/ ${HOME}/Mail
+rsync -avz ${SAVEHOST}:.claws-mail/ ${HOME}/.claws-mail
