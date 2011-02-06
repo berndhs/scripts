@@ -18,6 +18,7 @@ alias bashqt47='bash --rcfile ~/bin/initqt47'
 alias bashqtsim='bash --rcfile ~/bin/initqtsim'
 
 alias fdt='float deeptrim'
+export QTDIR="/usr/lib64/qt4"
 export QT_SOURCE_TREE="/home/bernd/Downloads/software/qt-source/qt-everywhere-opensource-src-4.7.1"
 export HOME_LOCAL="$HOME/local"
 #export QT_CREATOR_DIR="$HOME_LOCAL/qtcreator-2.1.0"
