@@ -2,4 +2,4 @@
 
 SAVEHOST=fiji
 
-rsync -avz ~/Mail ~/.claws-mail  ${SAVEHOST}:
+rsync -avd ~/Mail ~/.claws-mail  ${SAVEHOST}:
