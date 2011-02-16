@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SAVEHOST=fiji
+SAVEHOST=fiji.reflective-computing.com
 
 rsync -avd ${SAVEHOST}:Mail/ ${HOME}/Mail
 rsync -avd ${SAVEHOST}:.claws-mail/ ${HOME}/.claws-mail
