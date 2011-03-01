@@ -33,6 +33,7 @@ SCRIPTS =  \
 	syncmail \
 	pushmail \
         pullmail \
+	change-gnome-back \
 
 
 all:
