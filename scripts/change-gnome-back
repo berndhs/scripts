@@ -4,4 +4,9 @@ IMAGEFILE="$HOME/.config/backgrounds/images"
 IMAGES=`cat $IMAGEFILE`
 NEW_IMAGE=`randarg $IMAGES `
 GCONF_KEY="/desktop/gnome/background/picture_filename"
-gconftool-2 --type=string --set $GCONF_KEY  $NEW_IMAGE
+if [ -e $NEW_IMAGE ]
+then
+  gconftool-2 --type=string --set $GCONF_KEY  $NEW_IMAGE
+else
+  echo "no file $NOW_IMAGE"
+fi
