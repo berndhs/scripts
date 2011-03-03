@@ -20,8 +20,7 @@ cp /var/www/html/pictures/daily/ECIR.JPG /gitrepos/background.jpg
 
 CURCAN="CAN.JPG"
 wget http://www.weatheroffice.gc.ca/data/satellite/goes_enam_1070_100.jpg -O ${CURCAN}
-CUREURO="EURO.JPG"
-wget http://www.dwd.de/bvbw/generator/Sites/DWDWWW/Content/Oeffentlichkeit/WV/WVFK/English/Dynamisches/Regional/mete__IR__SW__aktuell__m00s,templateId=poster,property=poster.png -O ${CUREURO}
+
 DAILYDIR="/var/www/html/pictures/daily"  
 cp ${CURCAN} ${DAILYDIR}/can.jpg
 cp ${CUREURO} ${DAILYDIR}/euro.jpg
