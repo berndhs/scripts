@@ -1,5 +1,6 @@
 #!/bin/bash
 if [ $# > 1 ]
+then
   branch=$1
 else
   branch=master
@@ -7,6 +8,7 @@ fi
 for tgt in `git remote show`
 do
   if [ X${tgt} == "usbstick" ]
+  then
     echo "Push to -- " ${tgt} " -- Skipped"
   else
     echo "Push to -----------> " ${tgt}
