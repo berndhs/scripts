@@ -7,9 +7,9 @@ else
 fi
 for tgt in `git remote show`
 do
-  if [ X${tgt} == "usbstick" ]
+  if [ X$tgt == "Xusbstick" ]
   then
-    echo "Push to -- " ${tgt} " -- Skipped"
+    echo "Repo " ${tgt} " --- Skipped"
   else
     echo "Push to -----------> " ${tgt}
     git push ${tgt} ${branch}
