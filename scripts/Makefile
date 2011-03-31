@@ -2,6 +2,7 @@
 DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
+	pushgit \
 	addgpl.sh         \
 	colors.sh	\
 	doxephyr         \

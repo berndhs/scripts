@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ $# > 1 ]
+  branch=$1
+else
+  branch=master
+fi
+for tgt in `git remote show`
+do
+  if [ X${tgt} == "usbstick" ]
+    echo "Push to -- " ${tgt} " -- Skipped"
+  else
+    echo "Push to -----------> " ${tgt}
+    git push ${tgt} ${branch}
+  fi
+done
