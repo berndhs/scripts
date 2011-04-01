@@ -3,6 +3,7 @@ DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
 	pushgit \
+	list-zypp-packs \
 	addgpl.sh         \
 	colors.sh	\
 	doxephyr         \
