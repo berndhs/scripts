@@ -16,6 +16,7 @@ alias qt47='source ~/bin/setq47'
 alias qtsim='source ~/bin/setqsim'
 alias bashqt47='bash --rcfile ~/bin/initqt47'
 alias bashqtsim='bash --rcfile ~/bin/initqtsim'
+alias meeosc='osc -A https://api.pub.meego.com'
 
 alias fdt='float deeptrim'
 export QTDIR="/usr/lib64/qt4"
