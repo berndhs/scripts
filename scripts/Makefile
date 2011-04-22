@@ -35,7 +35,7 @@ SCRIPTS =  \
 	syncmail \
 	pushmail \
         pullmail \
-	change-gnome-back \
+	change-background \
 
 
 all:

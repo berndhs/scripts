@@ -1,0 +1,53 @@
+#!/bin/bash
+set -x
+
+change_gnome2 ()
+{
+  IMAGEFILE="$HOME/.config/backgrounds/images"
+  IMAGES=`cat $IMAGEFILE`
+  NEW_IMAGE=`randarg $IMAGES `
+  GCONF_KEY="/desktop/gnome/background/picture_filename"
+  if [ -e ${NEW_IMAGE} ]
+  then
+    gconftool-2 --type=string --set $GCONF_KEY  $NEW_IMAGE
+  else
+    echo "no file $NOW_IMAGE"
+  fi
+}
+
+change_gnome3 () {
+  IMAGEFILE="$HOME/.config/backgrounds/images"
+  IMAGES=`cat $IMAGEFILE`
+  NEW_IMAGE=`randarg $IMAGES `
+  GSETTINGS_KEY="picture-uri"
+  GSETTINGS_SCHEMA="org.gnome.desktop.background"
+  GSETTINGS_URI="file://"${NEW_IMAGE}
+  if [ -e ${NEW_IMAGE} ]
+  then
+    gsettings set ${GSETTINGS_SCHEMA} ${GSETTINGS_KEY} ${GSETTINGS_URI}
+  else
+    echo "no file $NOW_IMAGE"
+  fi
+}
+
+change_xfce () {
+  xfdesktop --reload
+}
+
+ps -U $USER | grep xfdesktop
+ISXFCE=$?
+
+if [ $ISXFCE -eq 0 ]
+then
+  change_xfce
+  exit
+fi
+
+ps -U $USER | grep gnome-shell
+ISGNOME3=$?
+
+if [ $ISGNOME3 -eq 0 ]
+then
+  change_gnome3
+  exit
+fi
