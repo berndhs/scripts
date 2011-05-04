@@ -12,6 +12,6 @@
 set -x
 export PS1='\u@\h \[\033[1;32m\033[44m\]Q472\[\033[0m\] \t \W \$ '
 
-export Q47="/usr/local/Trolltech/Qt-4.7.2"
+export Q47="/usr/local/Trolltech/Qt-4.7.3"
 export OLDPATH="$PATH"
 export PATH="${Q47}/bin:${PATH}"
