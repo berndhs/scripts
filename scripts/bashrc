@@ -30,6 +30,10 @@ export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export EDITOR='vi'
 
+export PACK="${HOME}/packaging"
+export OSCPACK="${HOME}/osc-packing"
+export MEEPACK="${HOME}/meego-packing"
+
 export PS1='\u@\h \t \W \$ '
 
 
