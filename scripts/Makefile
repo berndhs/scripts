@@ -35,6 +35,8 @@ SCRIPTS =  \
 	syncmail \
 	pushmail \
         pullmail \
+	pushnotes \
+        pullnotes \
 	change-background \
 
 
