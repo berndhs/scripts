@@ -23,11 +23,11 @@ wget http://www.weatheroffice.gc.ca/data/satellite/goes_enam_1070_100.jpg -O ${C
 
 DAILYDIR="/var/www/html/pictures/daily"  
 cp ${CURCAN} ${DAILYDIR}/can.jpg
-cp ${CUREURO} ${DAILYDIR}/euro.jpg
+#cp ${CUREURO} ${DAILYDIR}/euro.jpg
 
 ${HOME}/bin/storeinDB CAN.JPG
 
-${HOME}/bin/storeinDB EURO.JPG
+#${HOME}/bin/storeinDB EURO.JPG
 
 
 echo "content of " `pwd` " :"
