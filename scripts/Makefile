@@ -46,6 +46,7 @@ all:
 	@echo "to install bashrc, do make installbash"
 
 install:
+	install -d ${DESTDIR}
 	install -m 0755 -p ${SCRIPTS} ${DESTDIR}
 
 installbash:
