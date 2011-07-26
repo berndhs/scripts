@@ -3,6 +3,7 @@ DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
 	pushgit \
+	clearssh \
 	list-zypp-packs \
 	addgpl.sh         \
 	colors.sh	\
