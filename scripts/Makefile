@@ -39,6 +39,7 @@ SCRIPTS =  \
 	pushnotes \
         pullnotes \
 	change-background \
+	syncdir \
 
 
 all:
