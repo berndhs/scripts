@@ -21,6 +21,8 @@ alias sshnew='rm ~/.ssh/known_hosts; ssh '
 alias sshhard='ssh -o "StrictHostKeyChecking=yes" '
 alias sshweak='ssh -o "StrictHostKeyChecking=no" '
 
+alias ls='ls -FC --color=auto'
+
 alias fdt='float deeptrim'
 export QTDIR="/usr/lib64/qt4"
 export QT_SOURCE_TREE="/home/bernd/Downloads/software/qt-source/qt-everywhere-opensource-src-4.7.1"
