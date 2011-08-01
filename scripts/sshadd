@@ -1,0 +1,8 @@
+#!/bin/bash
+KF=$HOME/.ssh/id_rsa
+if [ -f $KF ]
+then
+  ssh-add $KF
+else
+  echo "I have nothing to add"
+fi

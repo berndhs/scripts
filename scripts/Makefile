@@ -2,6 +2,7 @@
 DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
+	sshadd \
 	pushgit \
 	list-zypp-packs \
 	addgpl.sh         \
