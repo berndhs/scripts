@@ -1,0 +1,10 @@
+#!/bin/bash
+AC=$#
+if [ $AC -lt 1 ] ;
+then
+  echo "need host argument"
+  exit 1
+fi
+CURRENTDIR=$(pwd)
+OTHERHOST=$1
+rsync -avz ./ ${USER}@${OTHERHOST}:${CURRENTDIR}

@@ -3,7 +3,10 @@ DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
 	updaterepos.sh \
+	sshadd \
 	pushgit \
+	clearssh \
+	list-zypp-packs \
 	addgpl.sh         \
 	colors.sh	\
 	doxephyr         \
@@ -35,7 +38,10 @@ SCRIPTS =  \
 	syncmail \
 	pushmail \
         pullmail \
-	change-gnome-back \
+	pushnotes \
+        pullnotes \
+	change-background \
+	syncdir \
 
 
 all:
@@ -44,6 +50,7 @@ all:
 	@echo "to install bashrc, do make installbash"
 
 install:
+	install -d ${DESTDIR}
 	install -m 0755 -p ${SCRIPTS} ${DESTDIR}
 
 installbash:

@@ -1,5 +1,8 @@
 #!/bin/bash
-
 SAVEHOST=fiji.reflective-computing.com
+if [ $# -gt 0 ]
+then
+  SAVEHOST=$1
+fi
 
 rsync -avd ~/Mail ~/.claws-mail  ${SAVEHOST}:

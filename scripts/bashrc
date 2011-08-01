@@ -16,6 +16,10 @@ alias qt47='source ~/bin/setq47'
 alias qtsim='source ~/bin/setqsim'
 alias bashqt47='bash --rcfile ~/bin/initqt47'
 alias bashqtsim='bash --rcfile ~/bin/initqtsim'
+alias meeosc='osc -A https://api.pub.meego.com'
+alias sshnew='rm ~/.ssh/known_hosts; ssh '
+alias sshhard='ssh -o "StrictHostKeyChecking=yes" '
+alias sshweak='ssh -o "StrictHostKeyChecking=no" '
 
 alias fdt='float deeptrim'
 export QTDIR="/usr/lib64/qt4"
@@ -28,6 +32,12 @@ export PATH="$EXTRA_PATH:$PATH"
 export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export EDITOR='vi'
+
+export PACK="${HOME}/packaging"
+export OSCPACK="${HOME}/osc-packing"
+export MEEPACK="${HOME}/meego-packing"
+
+export MAKEFLAGS="-j 2"
 
 export PS1='\u@\h \t \W \$ '
 
