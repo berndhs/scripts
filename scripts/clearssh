@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ $# -ne 1 ]; then
+  echo "usage: $0 hostname"
+  exit 1
+fi
+CLEARHOST=$1
+MYKNOWNSSH=$HOME/.ssh/known_hosts
+REMAINDER=/tmp/clearssh-remain
+grep -v $CLEARHOST $MYKNOWNSSH > $REMAINDER
+cp $REMAINDER $MYKNOWNSSH
+rm -r $REMAINDER
+
+
