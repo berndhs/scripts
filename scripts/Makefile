@@ -2,6 +2,7 @@
 DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
+	updaterepos.sh \
 	pushgit \
 	addgpl.sh         \
 	colors.sh	\
