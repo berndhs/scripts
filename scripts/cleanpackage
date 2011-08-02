@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# remove all versions of package $2 from subdirs in $1, except
+# keep those in the list $3,$4,...
+
 REPOPATH=$1
 PACKROOT=$2
 
