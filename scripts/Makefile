@@ -2,6 +2,7 @@
 DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
+	cleanpackage \
 	updaterepos.sh \
 	sshadd \
 	pushgit \
