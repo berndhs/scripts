@@ -1,0 +1,73 @@
+#!/bin/bash
+
+SRC_RESULTS=$(grep '^Wrote:' build.log | grep src.rpm | sed 's+Wrote: ++') 
+ARCH_I386_RESULTS=$(grep  '^Wrote:' build.log | grep i386.rpm | grep -v debuginfo | sed 's+Wrote: ++')
+ARCH_I586_RESULTS=$(grep  '^Wrote:' build.log | grep i586.rpm | grep -v debuginfo | sed 's+Wrote: ++')
+ARCH_I686_RESULTS=$(grep  '^Wrote:' build.log | grep i686.rpm | grep -v debuginfo | sed 's+Wrote: ++')
+ARCH_DBG_RESULTS=$(grep  '^Wrote:' build.log | grep  'i?86.rpm ' | grep debuginfo | sed 's+Wrote: ++')
+
+REPOUSER=bernd
+REPOHOST=fiji.ipv6.berndnet
+REPOROOT=rpmrepos/Geuzen/MeeGo/current
+
+ALL_RESULTS="$SRC_RESULTS \
+                         $ARCH_I386_RESULTS \
+                         $ARCH_I586_RESULTS \
+                         $ARCH_I686_RESULTS \
+                        $ARCH_DBG_RESULTS"
+
+ALL_RESULTS=""
+if [ ! X"$SRC_RESULTS" == "X" ]; then
+  rsync -azq $SRC_RESULTS $REPOUSER@$REPOHOST:$REPOROOT/src/
+  if [ $? -eq 0 ]; then
+    ALL_RESULTS+=" "$SRC_RESULTS
+  fi
+fi
+if [ ! X"$ARCH_I386_RESULTS" == "X" ]; then
+  rsync -azq $ARCH_I386_RESULTS $REPOUSER@$REPOHOST:$REPOROOT/ia32/packages/i386/
+  if [ $? -eq 0 ]; then
+    ALL_RESULTS+=" "$ARCH_I386_RESULTS
+  fi
+fi
+if [ ! X"$ARCH_I586_RESULTS" == "X" ]; then
+  rsync -azq $ARCH_I586_RESULTS $REPOUSER@$REPOHOST:$REPOROOT/ia32/packages/i586/
+  if [ $? -eq 0 ]; then
+    ALL_RESULTS+=" "$ARCH_I586_RESULTS
+  fi
+fi
+if [ ! X"$ARCH_I686_RESULTS" == "X" ]; then
+  rsync -azq $ARCH_I686_RESULTS $REPOUSER@$REPOHOST:$REPOROOT/ia32/packages/i686/
+  if [ $? -eq 0 ]; then
+    ALL_RESULTS+=" "$ARCH_I686_RESULTS
+  fi
+fi
+
+if [ ! X"$ARCH_DBG_RESULTS" == "X" ]; then
+  rsync -azq $ARCH_DBG_RESULTS $REPOUSER@$REPOHOST:$REPOROOT/ia32/debug
+  if [ $? -eq 0 ]; then
+    ALL_RESULTS+=" "$ARCH_DBG_RESULTS
+  fi
+fi
+
+KEEPERS=""
+PACKAGES=""
+for R in $ALL_RESULTS
+do
+  BASER=$(basename $R)
+  KEEPERS+=" $BASER "
+  P=$(echo $BASER| awk -F '-[0-9]' '{print $1}' )
+  echo $PACKAGES | grep $P 2>&1 > /dev/null
+  if [ $? -ne 0 ]; then
+     PACKAGES+=" $P"
+  fi
+done
+for PACK in $PACKAGES; do
+  ssh $REPOUSER@$REPOHOST <<EOF
+    cleanpackage $REPOROOT $PACK $KEEPERS
+EOF
+done
+
+ssh $REPOUSER@$REPOHOST <<EOF
+  updaterepos.sh
+EOF
+
