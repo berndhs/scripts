@@ -4,6 +4,7 @@ DESTDIR=${HOME}/bin
 SCRIPTS =  \
 	pack-build \
 	pack-ship \
+	cleanpackage \
 	updaterepos.sh \
 	sshadd \
 	pushgit \

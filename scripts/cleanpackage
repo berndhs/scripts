@@ -1,0 +1,27 @@
+#!/bin/bash
+
+REPOPATH=$1
+PACKROOT=$2
+
+shift   
+shift   
+KEEPLIST=$*
+
+echo "cleanrepo $REPOPATH $PACKROOT"
+
+ALLOFTHEM=$(find $REPOPATH -regex '.*/'$PACKROOT'-[0-9].*rpm')
+for X in $ALLOFTHEM; do     
+  KEEPIT="no"
+  SHORTX=$(basename ${X})
+  for K in $KEEPLIST; do
+    if [ "Y$SHORTX" == "Y$K" ]; then
+      KEEPIT="yes"
+    fi
+  done
+  if [ X$KEEPIT == "Xyes" ]; then
+    echo "     keep    $(basename $X)"
+  else 
+    echo "---- remove  $(basename $X)"
+    rm -f $X
+  fi
+done
