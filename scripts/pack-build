@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ $# -lt 1 ] ; then
+  PROJ=$(basename $PWD)
+else
+  PROJ=$1
+fi
+cp ${PROJ}*bz2 ${PROJ}.spec ${PROJ}.changes ${PROJ}.yaml \
+	$HOME/rpmbuild/SOURCES/
+rpmbuild -ba ${PROJ}.spec 2>&1 | tee build.log
+RESULTS=`grep "Wrote*rpm" build.log`
+echo $RESULTS
+
