@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME_DIR=/var/named
-FILES="${NAME_DIR}/named.berndnet ${NAME_DIR}/named.reflective"
+FILES="${NAME_DIR}/named.berndnet ${NAME_DIR}/named.globalberndnet"
 awk '/[ \t]IN[ \t]+A[ \t]/ {print "<li>";  print "<a  class=\"m20\" href=\"http://[" $4 "]\">" $4 "</a>"; print "<span>" $1 ".berndnet</span></li>";}' ${FILES}
 awk '/[ \t]fc00/ {print "<li>";  print "<a  class=\"m20\" href=\"http://[" $4 "]\">" $4 "</a>"; print "<span>" $1 ".berndnet</span></li>";}' ${FILES}
-awk '/[ \t]IN[ \t]+AAAA[ \t]+2/ {print "<li>";  print "<a  class=\"m20\" href=\"http://[" $4 "]\">" $4 "</a>"; print "<span>" $1 ".reflective-computing.com</span></li>";}' ${FILES}
+awk '/[ \t]IN[ \t]+AAAA[ \t]+2/ {print "<li>";  print "<a  class=\"m20\" href=\"http://[" $4 "]\">" $4 "</a>"; print "<span>" $1 ".globalberndnet</span></li>";}' ${FILES}
