@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SAVEHOST=fiji.reflective-computing.com
+SAVEHOST=fiji.globalberndnet
 NOTADIR=${HOME}/.local/share/data/BerndStramm/notably/
 
 rsync -avd ${NOTADIR} ${SAVEHOST}:${NOTADIR}

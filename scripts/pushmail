@@ -1,5 +1,5 @@
 #!/bin/bash
-SAVEHOST=fiji.reflective-computing.com
+SAVEHOST=fiji.globalberndnet
 if [ $# -gt 0 ]
 then
   SAVEHOST=$1
