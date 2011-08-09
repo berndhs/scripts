@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SAVEHOST=fiji.reflective-computing.com
+SAVEHOST=fiji.globalberndnet
 
 NOTADIR=${HOME}/.local/share/data/BerndStramm/notably/
 scp ${SAVEHOST}:${NOTADIR}/nota.sql ${HOME}/tmp/
