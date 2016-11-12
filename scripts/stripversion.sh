@@ -13,7 +13,7 @@ case "k$N" in
 		RES=`cat $VER | awk 'BEGIN { FS = "." } ; { print $1","$2 "."$3 }'`
 		;;
 	*)
-		echo "count not 1 2 or 3"
+		RES=`cat ${VER}`
 		;;
 esac
 echo $RES
