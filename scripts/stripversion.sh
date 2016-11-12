@@ -7,10 +7,10 @@ case "k$N" in
 		RES=`cat $VER | awk 'BEGIN { FS = "." } ; { print $1 }' `
 		;;
 	k2)
-		RES=`cat $VER | awk 'BEGIN { FS = "." } ; { print $1","$2 }'`
+		RES=`cat $VER | awk 'BEGIN { FS = "." } ; { print $1"."$2 }'`
 		;;
 	k3)
-		RES=`cat $VER | awk 'BEGIN { FS = "." } ; { print $1","$2 "."$3 }'`
+		RES=`cat $VER | awk 'BEGIN { FS = "." } ; { print $1"."$2 "."$3 }'`
 		;;
 	*)
 		RES=`cat ${VER}`
