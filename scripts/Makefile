@@ -2,6 +2,7 @@
 DESTDIR=${HOME}/bin
 
 SCRIPTS =  \
+	stripversion.sh \
 	pack-build \
 	pack-ship \
 	cleanpackage \
