@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cd ~/daily
 mail -s "Cron Log"  bernd@pirx < cronlog.log
 if [ $? -eq 0 ] 

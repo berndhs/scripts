@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ARCHIVE=$1
 BRANCH=$2

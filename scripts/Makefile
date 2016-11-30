@@ -1,57 +1,18 @@
+#!/usr/bin/make
 
 DESTDIR=${HOME}/bin
 
-SCRIPTS =  \
-	stripversion.sh \
-	pack-build \
-	pack-ship \
-	cleanpackage \
-	updaterepos.sh \
-	sshadd \
-	pushgit \
-	clearssh \
-	list-zypp-packs \
-	addgpl.sh         \
-	colors.sh	\
-	doxephyr         \
-	float          \
-	getir         \
-	get_more_goes.sh \
-	getother.sh    \
-	gitadd.sh    \
-	listrepos.sh\
-	loopxephyr \
-	maillogs.sh  \
-	makearchive.sh  \
-	mark_copyright \
-	runcopydb.sh  \
-        repack.sh \
-	showir       \
-	special.sh  \
-	storeIR.php \
-	time.php   \
-	setq47 \
-	setqsim \
-	initqt47 \
-	initqtsim \
-	synserv \
-	synmeego \
-	connectgogo \
-	addresses \
-	add-links \
-	syncmail \
-	pushmail \
-        pullmail \
-	pushnotes \
-        pullnotes \
-	change-background \
-	syncdir \
+SCRIPTS =  `find . -executable -type f`
 
 
 all:
 	@echo "to install scripts, do make install DESTDIR=/where/you/want/it"
 	@echo "           default: ${DESTDIR}"
 	@echo "to install bashrc, do make installbash"
+
+list:
+	echo "Scripts to install are:"
+	echo ${SCRIPTS}
 
 install:
 	install -d ${DESTDIR}
