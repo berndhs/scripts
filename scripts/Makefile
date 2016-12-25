@@ -4,6 +4,8 @@ DESTDIR=${HOME}/bin
 
 SCRIPTS =  `find . -executable -type f`
 
+ALLSCRIPTS = initqt57 ${SCRIPTS}
+
 
 all:
 	@echo "to install scripts, do make install DESTDIR=/where/you/want/it"
@@ -12,11 +14,11 @@ all:
 
 list:
 	echo "Scripts to install are:"
-	echo ${SCRIPTS}
+	echo ${ALLSCRIPTS}
 
 install:
 	install -d ${DESTDIR}
-	install -m 0755 -p ${SCRIPTS} ${DESTDIR}
+	install -m 0755 -p ${ALLSCRIPTS} ${DESTDIR}
 
 installbash:
 	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi

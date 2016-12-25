@@ -11,7 +11,9 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Source specific aliases and functions 
-
+DO57="~/bin/setq57"
 if [ -f ~/bin/setq57 ]; then
 	. ~/bin/setq57
+else
+  echo "No Script $(DO57) found"
 fi
