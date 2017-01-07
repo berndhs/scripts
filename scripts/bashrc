@@ -12,34 +12,54 @@ umask 0022
 alias zz='source ~/.bashrc'
 alias mroe='more'
 alias h=history
-alias qt47='source ~/bin/setq47'
-alias qtsim='source ~/bin/setqsim'
-alias bashqt47='bash --rcfile ~/bin/initqt47'
-alias bashqtsim='bash --rcfile ~/bin/initqtsim'
-alias meeosc='osc -A https://api.pub.meego.com'
-alias sshnew='rm ~/.ssh/known_hosts; ssh '
-alias sshhard='ssh -o "StrictHostKeyChecking=yes" '
-alias sshweak='ssh -o "StrictHostKeyChecking=no" '
 
 
-alias fdt='float deeptrim'
-export QTDIR="/usr/lib64/qt4"
-export QT_SOURCE_TREE="/home/bernd/Downloads/software/qt-source/qt-everywhere-opensource-src-4.7.1"
-export HOME_LOCAL="$HOME/local"
-#export QT_CREATOR_DIR="$HOME_LOCAL/qtcreator-2.1.0"
-#export QT_CREATOR_LIBDIR="$QT_CREATOR_DIR/lib"
-export EXTRA_PATH="$HOME_LOCAL/bin:/usr/local/bin"
-export PATH="$EXTRA_PATH:$PATH"
-export LD_LIBRARY_PATH="/usr/local/lib"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
-export EDITOR='vi'
-
+export PKG_CONFIG_PATH="/opt/Qt/5.7/gcc_64/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PACK="${HOME}/packaging"
-export OSCPACK="${HOME}/osc-packing"
-export MEEPACK="${HOME}/meego-packing"
+export OSCPACK="${HOME}/oscpacks"
 
-export MAKEFLAGS="-j2"
+#export PATH_QT5="/opt/Qt/5.7/bin"
 
-export PS1='\u@\h \t \W \$ '
+export PS1='\! \u@\h \D{%a %Y-%m-%d %R:%S} \W \$ '
 
+#export PATH="$EXTRA_PATH:$PATH_QT5:$PATH:$ANDROID_TOOLS"
+#export PATH="$PATH:$ANDROID_TOOLS"
+
+export EDITOR="deeptrim --alone"
+re-aiccu
+
+export HOMEBIN=${HOME}/bin
+export OPTBIN="/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
+/opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
+/opt/Qt/Tools/QtCreator/lib/Qt/bin:\
+/opt/Qt/Tools/QtCreator/bin:\
+/opt/Qt/5.7/android_armv7/bin:\
+/opt/Qt/5.7/gcc_64/bin:\
+/opt/android-studio/gradle/gradle-2.14.1/bin:\
+/opt/android-studio/jre/jre/bin:\
+/opt/android-studio/jre/bin:\
+/opt/android-studio/bin:\
+/opt/Android/Android/Sdk/tools/apps/SdkController/bin:\
+/opt/Android/Android/Sdk/tools/proguard/bin:\
+/opt/Android/Android/Sdk/extras/google/webdriver/SimpleApp/bin:\
+/opt/Android/Android/Sdk/extras/google/webdriver/TestAnAndroidWebApp/bin:\
+/opt/bin"
+export PATH="${HOMEBIN}:$HOME/.local/bin:${OPTBIN}:$PATH"
+export LD_LIBRARY_PATH="~/lib:$LD_LIBRARY_PATH"
+export GOPATH=$HOME/work
+export ANDROID_HOME=/opt/Android/Android/Sdk
+export ANDROID_NDK_HOST=linux-x86_64
+export ANDROID_PLATFORM=android-16
+export ANDROID_NDK_ROOT=/home/bernd/Downloads/software/android/android-ndk-r13b
+export ANDROID_TOOLCHAIN_PREFIX=arm-linux-androideabi
+export ANDROID_NDK_TOOLCHAIN_VERSION=4.9
+export ANDROID_NDK_TOOLS_PREFIX=arm-linux-androideabi
+export ANDROID_SDK_ROOT=/opt/Android/Android/Sdk
+
+#unset QTDIR
+#export QTDIR
+#unset QTLIB
+#export QTLIB
+#unset QTINC
+#export QTINC
 

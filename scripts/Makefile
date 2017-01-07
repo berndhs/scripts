@@ -19,6 +19,7 @@ list:
 install:
 	install -d ${DESTDIR}
 	install -m 0755 -p ${ALLSCRIPTS} ${DESTDIR}
+	make installbash
 
 installbash:
 	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
