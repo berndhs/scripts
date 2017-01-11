@@ -2,7 +2,7 @@
 
 DELAY=10
 
-for R in 1 2 3 4 5 6
+for R in 1 2
 do
   ip addr | grep inet6 | grep global
   if [ $? -eq 1 ]; then
