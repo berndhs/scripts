@@ -20,8 +20,12 @@ install:
 	install -d ${DESTDIR}
 	install -m 0755 -p ${ALLSCRIPTS} ${DESTDIR}
 	make installbash
+	make installprofile
 
 installbash:
 	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
+
+installprofile:
+	if [ -e dot.bash_profile ] ; then cp dot.bash_profile ${HOME}/.bash_profile ; fi
 
 
