@@ -14,11 +14,11 @@ alias mroe='more'
 alias h=history
 
 
-export PKG_CONFIG_PATH="/opt/Qt/5.7/gcc_64/lib/pkgconfig/:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/opt/Qt5.8.0/5.8/gcc_64/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PACK="${HOME}/packaging"
 export OSCPACK="${HOME}/oscpacks"
 
-#export PATH_QT5="/opt/Qt/5.7/bin"
+#export PATH_QT5="/opt/Qt5.8.0/5.8/bin"
 
 export PS1='\! \u@\h \D{%a %Y-%m-%d %R:%S} \W \$ '
 
@@ -29,13 +29,17 @@ export EDITOR="deeptrim --alone"
 re-aiccu
 
 export HOMEBIN=${HOME}/bin
-export OPTBIN="/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
-/opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
-/opt/Qt/Tools/QtCreator/lib/Qt/bin:\
-/opt/Qt/Tools/QtCreator/bin:\
-/opt/Qt/5.7/android_armv7/bin:\
-/opt/Qt/5.7/gcc_64/bin:\
-/opt/android-studio/gradle/gradle-2.14.1/bin:\
+
+export QT58bin=""
+
+#export OT58bin=":/opt/Qt5.8.0/Tools/QtInstallerFramework/2.0/bin:\
+#/opt/Qt5.8.0/Tools/QtCreator/libexec/qtcreator/clang/bin:\
+#/opt/Qt5.8.0/Tools/QtCreator/lib/Qt/bin:\
+#/opt/Qt5.8.0/Tools/QtCreator/bin:\
+#/opt/Qt5.8.0/5.8/android_armv7/bin:\
+#/opt/Qt5.8.0/5.8/gcc_64/bin:\
+
+export OPTBIN=":/opt/android-studio/gradle/gradle-2.14.1/bin:\
 /opt/android-studio/jre/jre/bin:\
 /opt/android-studio/jre/bin:\
 /opt/android-studio/bin:\
@@ -44,7 +48,8 @@ export OPTBIN="/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
 /opt/Android/Android/Sdk/extras/google/webdriver/SimpleApp/bin:\
 /opt/Android/Android/Sdk/extras/google/webdriver/TestAnAndroidWebApp/bin:\
 /opt/bin"
-export PATH="${HOMEBIN}:$HOME/.local/bin:${OPTBIN}:$PATH"
+
+export PATH="${HOMEBIN}:$HOME/.local/bin${OPTBIN}${QT58bin}:$PATH"
 export LD_LIBRARY_PATH="~/lib:$LD_LIBRARY_PATH"
 export GOPATH=$HOME/work
 export ANDROID_HOME=/opt/Android/Android/Sdk

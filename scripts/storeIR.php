@@ -1,30 +1,21 @@
 <?php      
-$con = mysql_connect("localhost","weather","quetzalcoatl");
-
-$db = "weather";
+$pdo = new PDO('mysql:host=localhost;dbname=satview','berndsat','X');
 
 $filename = $argv[1];
+$blobbytes = fopen($filename,'rb');
 
-mysql_select_db($db);
-
-$query_1 = "INSERT INTO `satpics` ( ident, picname, remark, image ) VALUES ( ";
+$insert = "INSERT INTO `satpics` ( ident, picname, remark, image ) VALUES (:ident,:picname,:remark,:image) ";
 $t_str = sprintf("%d",time(0));
-$query_2 = $t_str;
-$query_3 = $argv[1];
-$query_4 = "from php";
-$query_5 = mysql_real_escape_string(file_get_contents($filename));
+$ident = $t_str;
+$remark = "from php";
+$stmt = $pdo->prepare($insert);
+$stmt->bindParam(':ident',$ident);
+$stmt->bindParam(':picname',$filename);
+$stmt->bindParam(':remark',$remark);
+$stmt->bindParam(':image',$blobbytes, PDO::PARAM_LOB);
 
-mysql_query( $query_1 
-       . $query_2 
-       . " , '" 
-       . mysql_real_escape_string($filename)
-       . "' , '" 
-       . $query_4 
-       . "' , '"
-       . $query_5 
-       . "' )"
-	     ) ;
+$rslt = $stmt->execute();
 
-mysql_close($con);
+echo "result says",$rslt;
 
 ?>
