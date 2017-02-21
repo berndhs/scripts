@@ -9,7 +9,7 @@ echo $? >> ~/public_html/daily/done
 ls -l ECIR*
 pwd
 #php ~/bin/storeIR.php ~/public_html/daily/ECIR.JPG
-php ~/bin/storeSQLi.php ~/public_html/daily/ECIR.JPG
+php ~/bin/storePCO.php ~/public_html/daily/ECIR.JPG
 echo $? >> ~/public_html/daily/done
 ls -l ECIR.J* >> ~/public_html/daily/done
 
@@ -19,7 +19,7 @@ echo $? >> ~/public_html/daily/done
 ls -l WCIR*
 pwd
 #php ~/bin/storeIR.php ~/public_html/daily/WCIR.JPG
-php ~/bin/storeSQLi.php ~/public_html/daily/WCIR.JPG
+php ~/bin/storePCO.php ~/public_html/daily/WCIR.JPG
 echo $? >> ~/public_html/daily/done
 ls -l WCIR.J* >> ~/public_html/daily/done
 
