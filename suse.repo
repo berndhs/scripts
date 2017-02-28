@@ -1,0 +1,8 @@
+[openSUSE_Tools]
+name=openSUSE.org tools (Fedora_25)
+type=rpm-md
+baseurl=http://download.opensuse.org/repositories/openSUSE:/Tools/Fedora_25/
+gpgcheck=1
+gpgkey=http://download.opensuse.org/repositories/openSUSE:/Tools/Fedora_25//repodata/repomd.xml.key
+enabled=1
+

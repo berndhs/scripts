@@ -13,6 +13,7 @@ umask 0022
 alias zz='source ~/.bashrc'
 alias mroe='more'
 alias h=history
+alias bckld='xfdesktop -N'
 
 
 export PKG_CONFIG_PATH="/opt/Qt/5.8/gcc_64/lib/pkgconfig/:$PKG_CONFIG_PATH"

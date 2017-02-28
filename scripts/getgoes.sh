@@ -23,4 +23,9 @@ php ~/bin/storePCO.php ~/public_html/daily/WCIR.JPG
 echo $? >> ~/public_html/daily/done
 ls -l WCIR.J* >> ~/public_html/daily/done
 
+CURCAN=CAN.jpg
+
+curl -o ${CURCAN} http://weather.gc.ca/data/satellite/goes_enam_1070_100.jpg
+php ~/bin/storePCO.php ~/public_html/daily/${CURCAN}
+
 date >> ~/public_html/daily/done

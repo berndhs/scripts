@@ -1,5 +1,5 @@
 <?php      
-$pdo = new PDO('mysql:host=localhost;dbname=satview','berndsat','');
+$pdo = new PDO('mysql:host=localhost;dbname=satview','root','geronimo');
 
 $filename = $argv[1];
 $blobbytes = fopen($filename,'rb');
@@ -9,7 +9,7 @@ $insert = "INSERT INTO `satpics` ( ident, picname, remark, image ) VALUES (:iden
 $t_str = sprintf("%d",time(0));
 $ident = $t_str;
 printf("ident is %s\n",$ident);
-$remark = "from php";
+$remark = "PCO";
 $stmt = $pdo->prepare($insert);
 $stmt->bindParam(':ident',$ident);
 $stmt->bindParam(':picname',$picname);
