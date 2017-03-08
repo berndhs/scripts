@@ -16,7 +16,7 @@ alias h=history
 alias bckld='xfdesktop -N'
 
 
-export PKG_CONFIG_PATH="/opt/Qt/5.8/gcc_64/lib/pkgconfig/:$PKG_CONFIG_PATH"
+#export PKG_CONFIG_PATH="/opt/Qt/5.8/gcc_64/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PACK="${HOME}/packaging"
 export OSCPACK="${HOME}/oscpacks"
 
@@ -27,14 +27,14 @@ re-aiccu
 
 export HOMEBIN=${HOME}/bin
 
-#export QT58bin=""
+export QT58bin=""
 
-export QT58bin=":/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
-/opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
-/opt/Qt/Tools/QtCreator/lib/Qt/bin:\
-/opt/Qt/Tools/QtCreator/bin:\
-/opt/Qt/5.8/android_armv7/bin:\
-/opt/Qt/5.8/gcc_64/bin"
+#export QT58bin=":/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
+#/opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
+#/opt/Qt/Tools/QtCreator/lib/Qt/bin:\
+#/opt/Qt/Tools/QtCreator/bin:\
+#/opt/Qt/5.8/android_armv7/bin:\
+#/opt/Qt/5.8/gcc_64/bin"
 
 export OPTBIN=":/opt/android-studio/gradle/gradle-2.14.1/bin:\
 /opt/android-studio/jre/jre/bin:\

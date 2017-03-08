@@ -2,19 +2,16 @@
 
 
 # Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+if [ -f /etc/bash_profile ]; then
+	. /etc/bash_profile
 fi
 
-#ssh keys for github
+#ssh keys for github et al
 ssh-add ~/.ssh/id_rsa
-#see if we have ipv6 link, if not try to start aiccu
-REAC=`which re-aiccu`
-sudo $REAC
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/bin
+# PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/bin
 LD_LIBRARY_PATH="/usr/local/lib64;/usr/local/lib;/usr/lib64;/usr/lib;/opt/lib64;/opt/lib"
 
 export PATH
