@@ -23,7 +23,6 @@ export OSCPACK="${HOME}/oscpacks"
 export PS1='\! \u@\h \D{%a %Y-%m-%d %R:%S} \W \$ '
 
 export EDITOR="deeptrim --alone"
-re-aiccu
 
 export HOMEBIN=${HOME}/bin
 
@@ -62,6 +61,8 @@ export ANDROID_NDK_TOOLS_PREFIX=arm-linux-androideabi
 export ANDROID_SDK_ROOT=/opt/Android/Android/Sdk
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-5.b16.fc25.x86_64/
+
+re-aiccu
 
 #unset QTDIR
 #export QTDIR
