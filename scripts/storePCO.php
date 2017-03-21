@@ -1,5 +1,5 @@
 <?php      
-$pdo = new PDO('mysql:host=localhost;dbname=satview','root','geronimo');
+$pdo = new PDO('mysql:host=curacao.berndnet;dbname=satview','bernd','geronimo');
 
 $filename = $argv[1];
 $blobbytes = fopen($filename,'rb');
