@@ -24,6 +24,7 @@ install:
 
 installbash:
 	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
+	if [ -e root.bashrc ] ; then cp root.bashrc /root/.bashrc ; fi
 
 installprofile:
 	if [ -e dot.bash_profile ] ; then cp dot.bash_profile ${HOME}/.bash_profile ; fi

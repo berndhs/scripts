@@ -20,3 +20,4 @@ do
   fi
   sleep $DELAY
 done
+ip addr | grep global
