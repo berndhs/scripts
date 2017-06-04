@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/Qt/5.7/android_armv7/bin/androiddeployqt $*

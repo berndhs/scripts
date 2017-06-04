@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /etc/sysconfig/network-scripts
+sudo ifdown enp2s0f1
+sudo ifup ifcfg-enp2s0f1
+

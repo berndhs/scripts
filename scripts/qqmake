@@ -1,0 +1,27 @@
+#!/bin/bash
+
+QMAKE="qmake-qt5"
+ARGLIST=""
+ALLARGS=$*
+
+for A in ${ALLARGS}; do
+  echo "checking $A"
+  SEEN_SOME="no"
+  AR=$A
+  case $A in
+  qt5 )
+    QMAKE="/opt/Qt/5.8/gcc_64/bin/qmake"
+    AR=""
+    ;;
+  droid )
+    QMAKE="/opt/Qt/5.8/android_armv7/bin/qmake"
+    AR=""
+    ;;
+
+   esac
+   ARGLIST=${ARGLIST}" "${AR}
+ done
+echo "calling "$QMAKE
+echo "for arguments "${ARGLIST}
+
+${QMAKE} ${ARGLIST}
