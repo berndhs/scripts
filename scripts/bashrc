@@ -44,16 +44,16 @@ export EDITOR="deeptrim --alone"
 
 export HOMEBIN="${HOME}/bin:${HOME}/go/bin"
 
-export QT58bin=""
+#export QT58bin=""
 
-#export QT58bin=":/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
-#/opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
-#/opt/Qt/Tools/QtCreator/lib/Qt/bin:\
-#/opt/Qt/Tools/QtCreator/bin:\
-#/opt/Qt/5.8/android_armv7/bin:\
-#/opt/Qt/5.8/gcc_64/bin"
+export QT58bin=":/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
+/opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
+/opt/Qt/Tools/QtCreator/lib/Qt/bin:\
+/opt/Qt/Tools/QtCreator/bin:\
+/opt/Qt/5.8/android_armv7/bin:\
+/opt/Qt/5.8/gcc_64/bin"
 
-export OPTBIN=":/opt/android-studio/gradle/gradle-2.14.1/bin:\
+export OPTBIN="/opt/android-studio/gradle/gradle-2.14.1/bin:\
 /opt/android-studio/jre/jre/bin:\
 /opt/android-studio/jre/bin:\
 /opt/android-studio/bin:\
@@ -67,8 +67,7 @@ export OPTBIN=":/opt/android-studio/gradle/gradle-2.14.1/bin:\
 export PATH="${HOMEBIN}:${OPTBIN}${QT58bin}:$ETC_PATH"
 export ETC_PATH
 
-export LD_LIBRARY_PATH="~/lib:$LD_LIBRARY_PATH"
-export GOPATH=$HOME/work
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64:/usr/lib:~/lib"
 export ANDROID_HOME=/opt/Android/Android/Sdk
 export ANDROID_NDK_HOST=linux-x86_64
 export ANDROID_PLATFORM=android-16
