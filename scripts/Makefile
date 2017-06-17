@@ -19,10 +19,13 @@ list:
 install:
 	install -d ${DESTDIR}
 	install -m 0755 -p ${ALLSCRIPTS} ${DESTDIR}
-	make installbash
 	make installprofile
 
 installbash:
+	if [ ! -w /root ] ; then 
+	  echo "sorry need to write to /root for this"
+	  exit 1
+	fi
 	if [ -e bashrc ] ; then cp bashrc ${HOME}/.bashrc ; fi
 	if [ -e root.bashrc ] ; then cp root.bashrc /root/.bashrc ; fi
 

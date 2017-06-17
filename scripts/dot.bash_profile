@@ -5,12 +5,9 @@
 if [ -f /etc/bash_profile ]; then
 	. /etc/bash_profile
 fi
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
-KF=$HOME/.ssh/id_rsa
-if [ -f $KF ]
-then
-  ssh-add $KF
-fi
 # User specific environment and startup programs
 
 # PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/bin

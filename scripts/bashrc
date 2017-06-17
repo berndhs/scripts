@@ -35,7 +35,7 @@ contains() {
 #default PS1
 export PS1='\! \u@\033[45m\h\033[0m \D{%a %Y-%m-%d %R:%S} \W \$ '
 #for arm computers
-contains X`uname -m` "Xarmv7l" && export PS1='\! \u \D{%a %Y-%m-%d %R:%S} \033[44m\h\033[0m \W \$ '
+contains X`uname -m` "Xarmv7l" && export PS1='\! \u \D{%a %Y-%m-%d %R:%S} \033[44m\h\033[24m \W \$ '
 #for amazon virtual host
 contains `uname -n` "us-west-2" && export PS1='\! \u \D{%a %Y-%m-%d %R:%S} \033[43m\h\033[0m \W \$ '
 
@@ -50,8 +50,8 @@ export QT58bin=":/opt/Qt/Tools/QtInstallerFramework/2.0/bin:\
 /opt/Qt/Tools/QtCreator/libexec/qtcreator/clang/bin:\
 /opt/Qt/Tools/QtCreator/lib/Qt/bin:\
 /opt/Qt/Tools/QtCreator/bin:\
-/opt/Qt/5.8/android_armv7/bin:\
-/opt/Qt/5.8/gcc_64/bin"
+/opt/Qt/5.9/android_armv7/bin:\
+/opt/Qt/5.9/gcc_64/bin"
 
 export OPTBIN="/opt/android-studio/gradle/gradle-2.14.1/bin:\
 /opt/android-studio/jre/jre/bin:\
