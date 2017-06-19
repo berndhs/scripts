@@ -1,5 +1,6 @@
 #!/usr/bin/make
 
+
 DESTDIR=${HOME}/bin
 
 SCRIPTS =  `find . -executable -type f`
